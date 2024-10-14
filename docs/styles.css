@@ -1,53 +1,75 @@
 body {
   background-color: rgb(8, 12, 89);
   font-family: "DotGothic16", sans-serif;
-  /* font-weight: 400; */
-  font-style: normal;
 }
 
 h1 {
   color: aquamarine;
-  /* font-family: ; */
-  font-size: 8rem;
+  font-size: 4rem;
 }
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 1rem;
 }
+
 .btns-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 10rem;
+  gap: 2rem;
 }
 
 .btn {
-  width: 20rem;
-  height: 20rem;
+  width: 8rem;
+  height: 8rem;
   background-color: beige;
-  border: solid black 1.5rem;
+  border: solid black 1rem;
   border-radius: 50px;
 }
+
 .green {
   background-color: green;
 }
+
 .red {
   background-color: red;
 }
+
 .yellow {
   background-color: yellow;
 }
+
 .blue {
   background-color: blue;
 }
+
 .pressed {
   background-color: gray;
-  box-shadow: 10px 5px 5px rgb(226, 227, 221);
-  border: solid rgb(226, 227, 221) 1.5rem;
+  box-shadow: 5px 3px 3px rgb(226, 227, 221);
+  border: solid rgb(226, 227, 221) 1rem;
 }
+
 .game-over {
   background-color: red;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 8rem;
+  }
+
+  .btns-container {
+    gap: 5rem;
+  }
+
+  .btn {
+    width: 15rem;
+    height: 15rem;
+    border: solid black 1.5rem;
+  }
 }
