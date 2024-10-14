@@ -42,11 +42,13 @@ function animatePress(e) {
 }
 
 $(".btn").click(function (e) {
-  color = e.target.id;
-  animatePress(e);
-  playAudio(color);
-  userClickedPattern.push(color);
-  compareArrays();
+  if (gamePattern.length > 0 && gameOverState !== true) {
+    color = e.target.id;
+    animatePress(e);
+    playAudio(color);
+    userClickedPattern.push(color);
+    compareArrays();
+  }
 });
 
 function compareArrays() {
@@ -57,7 +59,7 @@ function compareArrays() {
     if (userClickedPattern.length === gamePattern.length) {
       setTimeout(function () {
         nextSequence();
-      }, 1500);
+      }, 1200);
     }
   } else {
     gameOver();
@@ -68,9 +70,9 @@ function playAudio(color) {
   new Audio(`sounds/${color}.mp3`).play();
 }
 
-//Start the game with a click
-$(document).keydown(function () {
-  if (level < 1 || gameOverState === true) {
+//Start the game with a key press
+$("h1").click(function () {
+  if (level === 0) {
     gamePattern = [];
     $("h1").text("Level 0");
     nextSequence();
@@ -78,6 +80,8 @@ $(document).keydown(function () {
 });
 
 function gameOver() {
+  gameOverState = true;
+  level = 0;
   gameOverAudio = new Audio("sounds/wrong.mp3");
   gameOverAudio.play();
 
@@ -86,6 +90,4 @@ function gameOver() {
     $("body").removeClass("game-over");
   }, 200);
   $("h1").text("Lost! Press Any Key to Restart");
-  gameOverState = true;
-  level = 0;
 }
