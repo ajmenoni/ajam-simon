@@ -7,8 +7,6 @@ let gameOverState = false;
 
 function randomButton() {
   const color = buttonColors[buttonColor()];
-  playAudio(color);
-  buttonFlash(color);
   return color;
 }
 
@@ -21,8 +19,17 @@ function nextSequence() {
   level++;
   $("h1").text(`Level ${level}`);
   gamePattern.push(randomButton());
-  console.log(gamePattern);
+  playFullGameSequence();
   resetUserInputs();
+}
+
+function playFullGameSequence() {
+  gamePattern.forEach((e, index) => {
+    setTimeout(() => {
+      playAudio(e);
+      buttonFlash(e);
+    }, index * 500);
+  });
 }
 
 function resetUserInputs() {
