@@ -77,7 +77,7 @@ function playAudio(color) {
   new Audio(`sounds/${color}.mp3`).play();
 }
 
-//Start the game with a key press
+//Start the game with click
 $("h1").click(function () {
   if (level === 0) {
     gamePattern = [];
@@ -96,5 +96,5 @@ function gameOver() {
   setTimeout(function () {
     $("body").removeClass("game-over");
   }, 200);
-  $("h1").text("Lost! Press Any Key to Restart");
+  $("h1").text("Lost! Click me to start over.");
 }
