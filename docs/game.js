@@ -70,7 +70,7 @@ function playAudio(color) {
   new Audio(`sounds/${color}.mp3`).play();
 }
 
-//Start the game with a key press
+//Start the game with click
 $("h1").click(function () {
   if (level === 0) {
     gamePattern = [];
